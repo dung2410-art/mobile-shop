@@ -22,9 +22,9 @@ public class DBConnection {
  
         try {
             DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
-            String dbURL = "jdbc:sqlserver://localhost\\sqlexpress";
-            String user = "trung";
-            String pass = "123456";
+            String dbURL = "jdbc:sqlserver://localhost\\sqlexpress;databaseName=PRJ301;portNumber=1433";
+            String user = "sa";
+            String pass = "123";
             conn = DriverManager.getConnection(dbURL, user, pass);
             if (conn != null) {
                 DatabaseMetaData dm = (DatabaseMetaData) conn.getMetaData();
