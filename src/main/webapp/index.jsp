@@ -21,7 +21,7 @@
             </div>
             <div id="content">
                 <h1>Hello World!</h1>        
-                <form name="Name Input Form" action="response.jsp">
+                <form name="Name Input Form" action="Home" method="GET">
                     Enter your name:
                     <input type="text" name="name" />
                     <input type="submit" value="OK" />
