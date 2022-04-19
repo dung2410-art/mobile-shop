@@ -22,9 +22,9 @@ public class DBConnection {
         try {         
             DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
             //String dbURL = "jdbc:sqlserver://localhost\\instance1;enabledTLSProtocols=TLSv1.0";
-            String dbURL = "jdbc:sqlserver://localhost\\INSTANCE2007";
+            String dbURL = "jdbc:sqlserver://localhost:1433;databaseName=PRJ301_moblieshop";
             String user = "sa";
-            String pass = "123456";
+            String pass = "123";
             conn = DriverManager.getConnection(dbURL, user, pass);
             if (conn != null) {
                 DatabaseMetaData dm = (DatabaseMetaData) conn.getMetaData();

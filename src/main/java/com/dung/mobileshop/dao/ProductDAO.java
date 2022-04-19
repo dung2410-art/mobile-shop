@@ -25,12 +25,12 @@ public class ProductDAO {
         ResultSet resultSet = null;
         try {
             DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
-            String dbURL = "jdbc:sqlserver://localhost\\INSTANCE2007";
+            String dbURL = "jdbc:sqlserver://localhost:1433;databaseName=PRJ301_moblieshop";
             String user = "sa";
-            String pass = "123456";
+            String pass = "123";
             conn = DriverManager.getConnection(dbURL, user, pass);
             statement = conn.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM PRJ301.dbo.product");
+            resultSet = statement.executeQuery("SELECT * [PRJ301_moblieshop].[dbo].[Product]");
             while(resultSet.next()){
                 Product newProduct = new Product();
                 newProduct.setDescription(resultSet.getString("description"));
@@ -66,12 +66,12 @@ public class ProductDAO {
         ResultSet resultSet = null;
         try {
             DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
-            String dbURL = "jdbc:sqlserver://localhost\\INSTANCE2007";
+            String dbURL = "jdbc:sqlserver://localhost:1433;databaseName=PRJ301_moblieshop";
             String user = "sa";
-            String pass = "123456";
+            String pass = "123";
             conn = DriverManager.getConnection(dbURL, user, pass);
             statement = conn.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM PRJ301.dbo.product WHERE id="+id+"");
+            resultSet = statement.executeQuery("SELECT * [PRJ301_moblieshop].[dbo].[Product] WHERE id="+id+"");
             while(resultSet.next()){
                 Product newProduct = new Product();
                 newProduct.setDescription(resultSet.getString("description"));
