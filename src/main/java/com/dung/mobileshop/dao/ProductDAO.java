@@ -38,10 +38,51 @@ public class ProductDAO {
                 newProduct.setBrand(resultSet.getString("brand"));
                 newProduct.setModel(resultSet.getString("model"));
                 newProduct.setSize(resultSet.getString("size"));
+                newProduct.setId(Integer.parseInt(resultSet.getString("id")));
                 newProduct.setPrice(Integer.parseInt(resultSet.getString("price")));
                 newProduct.setQuantity(Integer.parseInt(resultSet.getString("quantity")));
                 productsList.add(newProduct);
                 System.out.println(newProduct.getName());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (conn != null && !conn.isClosed()) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return productsList;
+    }
+    
+    public static ArrayList<Product> getProductById(String id) {   
+        ArrayList<Product> productsList = new ArrayList<Product>();
+        Connection conn = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        try {
+            DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
+            String dbURL = "jdbc:sqlserver://localhost\\INSTANCE2007";
+            String user = "sa";
+            String pass = "123456";
+            conn = DriverManager.getConnection(dbURL, user, pass);
+            statement = conn.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM PRJ301.dbo.product WHERE id="+id+"");
+            while(resultSet.next()){
+                Product newProduct = new Product();
+                newProduct.setDescription(resultSet.getString("description"));
+                newProduct.setName(resultSet.getString("name"));
+                newProduct.setBrand(resultSet.getString("brand"));
+                newProduct.setModel(resultSet.getString("model"));
+                newProduct.setSize(resultSet.getString("size"));
+                newProduct.setId(Integer.parseInt(resultSet.getString("id")));
+                newProduct.setPrice(Integer.parseInt(resultSet.getString("price")));
+                newProduct.setQuantity(Integer.parseInt(resultSet.getString("quantity")));
+                productsList.add(newProduct);
             }
         } catch (Exception e) {
             e.printStackTrace();

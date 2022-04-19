@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : Apr 14, 2022, 2:42:26 PM
+    Document   : details
+    Created on : Apr 19, 2022, 5:16:18 PM
     Author     : Dung
 --%>
 
@@ -15,7 +15,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
-        <title>Home</title>
+        <title>Product Page</title>
         <style>
             .product-container{
                 display: flex;
@@ -61,24 +61,21 @@
             </div>
             <div id="content">                
                 <div class="product-container">
-                <%
+                details
+                 <%
                 List<Product> pdts = (List<Product>)request.getAttribute("productList");
                 int count =0;
                 if(pdts!=null){
                     for(Product prod: pdts){
                         count++;
                     %>
-                        <div class='product-card' onclick="window.document.location='details?id=<%=prod.getId()%>'">
+                        <div class='product-card'">
                         <div><img class='product-image' src='images/mobile_example.jpg'/></div>
                         <div class='desc-text'><%=prod.getName()%></div>
                         <div class='desc-text'>VND<%=prod.getPrice()%></div>
                         <div class='desc-text'>VND<%=prod.getSize()%></div>
                         </div>                        
-                    <%
-                        if(count!=1 && count%4==0){
-                            out.println("</div>");
-                            out.println("<div class='product-container'>");
-                        }  
+                    <%                        
                     }
                 }
                 %>
