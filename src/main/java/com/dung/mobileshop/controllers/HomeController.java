@@ -3,7 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 package com.dung.mobileshop.controllers;
+import com.dung.mobileshop.dao.ProductDAO;
 import com.dung.mobileshop.helper.DBConnection;
+import com.dung.mobileshop.models.Product;
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -11,6 +14,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 
 /**
  *
@@ -39,7 +43,10 @@ public class HomeController extends HttpServlet {
             out.println("<title>Servlet HomeServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<div>"+DBConnection.connect()+"<div>");
+            ArrayList<Product> productsList = ProductDAO.getProducts();
+            for(Product pr: productsList){
+                out.println("<div>"+pr.getName() +"<div>");
+            }
             out.println("<h1>Servlet HomeServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
@@ -57,8 +64,10 @@ public class HomeController extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
+            throws ServletException, IOException {        
+        request.setAttribute("productList", ProductDAO.getProducts());
+        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/index.jsp");
+        requestDispatcher.forward(request,response);
     }
 
     /**

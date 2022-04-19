@@ -87,3 +87,8 @@ body {
     background: #eee;
     min-height: 100%;
 }
+
+.product-container{
+    display: flex;
+    flex-direction: row-reverse;
+}
