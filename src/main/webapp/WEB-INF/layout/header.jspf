@@ -1,0 +1,17 @@
+<div id="header">
+    <div id="header-image">
+        <img id="logo" src="images/dung_mobile.png">       
+    </div>
+    <div  id="header-title">
+         Dung's Mobile Shop
+    </div>
+    <div id="header-right">        
+        <div id="header-login">
+            Login
+        </div>
+        <div id="header-search">
+            <input id="search-box" type="text">
+            <i class="fa fa-search"></i> 
+        </div>
+    </div>       
+</div>
