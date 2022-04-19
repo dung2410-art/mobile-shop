@@ -15,51 +15,10 @@ import java.sql.Statement;
  *
  * @author Admin
  */
-public class DBConnection {
-    public static String connect() {
- 
-        Connection conn = null;
- 
-        try {         
-            DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
-
-            
-            String dbURL = "jdbc:sqlserver://localhost\\INSTANCE2007";
-            String user = "sa";
-            String pass = "123456";
-
-            //String dbURL = "jdbc:sqlserver://localhost\\sqlexpress;databaseName=PRJ301;portNumber=1433";
-            //String user = "sa";
-            //String pass = "123";
-
-            conn = DriverManager.getConnection(dbURL, user, pass);
-            if (conn != null) {
-                DatabaseMetaData dm = (DatabaseMetaData) conn.getMetaData();
-                System.out.println("Driver name: " + dm.getDriverName());
-                System.out.println("Driver version: " + dm.getDriverVersion());
-                System.out.println("Product name: " + dm.getDatabaseProductName());
-                System.out.println("Product version: " + dm.getDatabaseProductVersion());
-                return "Connected";
-            }
-            return "Error";
- 
-        } catch (SQLException ex) {
-            return ex.getMessage();
-        } finally {
-            try {
-                if (conn != null && !conn.isClosed()) {
-                    conn.close();
-                }
-            } catch (SQLException ex) {
-                return ex.getMessage();
-            }
-        }
-    }
+public class DBConnection {    
     
-    public static Connection getConnection() {
- 
-        Connection conn = null;
- 
+    public static Connection getConnection() { 
+        Connection conn = null; 
         try {         
             DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
             //String dbURL = "jdbc:sqlserver://localhost\\instance1;enabledTLSProtocols=TLSv1.0";
@@ -75,8 +34,7 @@ public class DBConnection {
                 System.out.println("Product version: " + dm.getDatabaseProductVersion());
                 return conn;
             }
-            return null;
- 
+            return null; 
         } catch (SQLException ex) {
             return null;
         } finally {

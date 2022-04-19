@@ -8,6 +8,7 @@
 <%@page import="java.util.List"%>
 <%@page import="com.dung.mobileshop.models.Product"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="jakarta.servlet.RequestDispatcher"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -52,19 +53,13 @@
             }
         </style>
     </head>
-    <body>
+    <body>        
         <div id="main">          
             <jsp:include page="./WEB-INF/layout/header.jspf" />
             <div id="leftMenu">
                 left column
             </div>
-            <div id="content">
-                <h1>Hello World!</h1>        
-                <form name="Name Input Form" action="Home" method="GET">
-                    Enter your name:
-                    <input type="text" name="name" />
-                    <input type="submit" value="OK" />
-                </form> 
+            <div id="content">                
                 <div class="product-container">
                 <%
                 List<Product> pdts = (List<Product>)request.getAttribute("productList");

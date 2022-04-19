@@ -20,7 +20,7 @@ import java.util.ArrayList;
  *
  * @author Admin
  */
-@WebServlet(name="HomeController", urlPatterns={"/Home"})
+@WebServlet(name="HomeController", urlPatterns={""})
 public class HomeController extends HttpServlet {
 
     /**
