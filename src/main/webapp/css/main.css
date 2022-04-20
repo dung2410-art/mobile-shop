@@ -79,6 +79,11 @@ body {
     background: #ccc;
     height: 20px;
     padding: 2px;
+    border: solid 2px #de22ad;
+}
+
+textarea:focus, input:focus{
+    outline: none;
 }
 
 #footer {
