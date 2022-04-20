@@ -9,6 +9,9 @@
         <div id="header-login">
             Login
         </div>
+        <div id="cart">            
+            <i class="fa fa-cart-plus"></i>
+        </div>
         <div id="header-search">
             <input id="search-box" type="text">
             <i class="fa fa-search"></i> 

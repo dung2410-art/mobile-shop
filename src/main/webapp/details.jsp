@@ -16,71 +16,45 @@
         <link rel="stylesheet" type="text/css" href="css/main.css">
         <link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
         <title>Product Page</title>
-        <style>
-            .product-container{
-                display: flex;
-                flex-direction: row;
-                margin: 20px;
-                padding: 5px;
-                border-radius: 10px;
-                background: #e7e6e6;
-            }
-            
-            .product-card{                
-                margin: 10px;
-                padding: 5px;
-                width: 130px;
-                height: 200px;
-                border-radius: 10px;
-                border: 4px solid #de22ad;
-                cursor: pointer;
-                box-shadow: 1px 2px #888888;
-            }
-            
-            .product-card:hover{ 
-                background: white;
-                border: 4px solid #ed6dcc;                
-            }
-            
-            .desc-text{
-                font-size: 12px;
-                color: #de22ad;
-            }
-            
-            .product-image{
-                width: 110px;
-                height: 140px;
-            }
+        <style>                     
         </style>
     </head>
     <body>        
         <div id="main">          
             <jsp:include page="./WEB-INF/layout/header.jspf" />
-            <div id="leftMenu">
-                left column
-            </div>
-            <div id="content">                
-                <div class="product-container">
-                details
-                 <%
-                List<Product> pdts = (List<Product>)request.getAttribute("productList");
-                int count =0;
-                if(pdts!=null){
-                    for(Product prod: pdts){
-                        count++;
-                    %>
-                        <div class='product-card'">
-                        <div><img class='product-image' src='images/mobile_example.jpg'/></div>
-                        <div class='desc-text'><%=prod.getName()%></div>
-                        <div class='desc-text'>VND<%=prod.getPrice()%></div>
-                        <div class='desc-text'>VND<%=prod.getSize()%></div>
-                        </div>                        
-                    <%                        
+            <div class="center-pane">
+                <jsp:include page="./WEB-INF/layout/left-menu.jspf" />
+                <div id="content">                
+                    <div class="details-container">
+                     <%
+                    List<Product> pdts = (List<Product>)request.getAttribute("productList");
+                    int count =0;
+                    if(pdts!=null){
+                        for(Product prod: pdts){
+                            count++;
+                        %>
+                            <div class='details-card'">
+                                <div><img class='details-image' src='images/mobile_example.jpg'/></div>
+                                <div class='details-info'>
+                                    <div class='details-title'><%=prod.getName()%></div>
+                                    <div class='details-text'><span class='details-header'>Price:</span>VND <%=prod.getPrice()%></div>
+                                    <div class='details-text'><span class='details-header'>Size:</span><%=prod.getSize()%></div>
+                                    <div class='details-text'><span class='details-header'>In stock:</span><%=prod.getQuantity()%></div>
+                                    <div class='details-text'><span class='details-header'>Brand:</span><%=prod.getBrand()%></div>
+                                    <div class='details-text'><span class='details-header'>Model:</span><%=prod.getModel()%></div>
+                                    <div class='details-text'><span class='details-header'>Description:</span><%=prod.getDescription()%></div>
+                                    <div class='action-panel'><!-- comment -->
+                                        <button class='primary-button' type='button'>Add to Cart</button>
+                                    </div>
+                                </div>                            
+                            </div>                        
+                        <%                        
+                        }
                     }
-                }
-                %>
+                    %>
+                    </div>
                 </div>
-            </div>
+            </div>        
             <jsp:include page="./WEB-INF/layout/footer.jspf" />
         </div>       
     </body>
