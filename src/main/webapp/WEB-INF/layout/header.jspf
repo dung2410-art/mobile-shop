@@ -1,3 +1,4 @@
+<script src="js/jquery.3.6.0.min.js"></script>
 <div id="header">
     <div id="header-image">
         <img id="logo" src="images/dung_mobile.png">       
@@ -18,3 +19,12 @@
         </div>
     </div>       
 </div>
+<script>
+$("#search-box").on("keyup",function(e){    
+    if(e.keyCode == 13)
+    {
+        console.log("hehehe");
+        window.document.location="search?term="+$("#search-box").val().toLowerCase();
+    }
+});
+</script>
