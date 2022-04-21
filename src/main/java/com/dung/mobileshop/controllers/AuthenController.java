@@ -14,6 +14,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  *
@@ -37,6 +38,14 @@ public class AuthenController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String userPath = request.getServletPath();
+        if (userPath.equals("/login")) {
+            // TODO: Implement 
+        }else  if (userPath.equals("/logout")) {            
+            HttpSession session=request.getSession();              
+            session.removeAttribute("username");
+            session.removeAttribute("userrole");
+        }
         RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/login.jsp");
         requestDispatcher.forward(request,response);
     }
@@ -55,7 +64,10 @@ public class AuthenController extends HttpServlet {
         User user = UserDAO.authenticate(request.getParameter("email"),
                 request.getParameter("password"));
         // if addToCart action is called
-        if (user != null) {             
+        if (user != null) {            
+            HttpSession session=request.getSession();  
+            session.setAttribute("username", user.getName());
+            session.setAttribute("userrole", user.getRole());
             response.sendRedirect("/mobileshop");
         } else {            
             request.setAttribute("errorMessage", "Either email or password was incorrect!");

@@ -21,9 +21,9 @@
     </head>
     <body>        
         <div id="main">          
-            <jsp:include page="./WEB-INF/layout/header.jspf" />
+            <jsp:include page="/header.jsp" />
             <div class="center-pane">
-                <jsp:include page="./WEB-INF/layout/left-menu.jspf" />
+                <jsp:include page="/left-menu.jsp" />
                 <div id="content">                
                     <div class="product-container">
                     <%
@@ -50,7 +50,7 @@
                     </div>
                 </div>
             </div>        
-            <jsp:include page="./WEB-INF/layout/footer.jspf" />
+            <jsp:include page="/footer.jsp" />
         </div>       
     </body>
 </html>

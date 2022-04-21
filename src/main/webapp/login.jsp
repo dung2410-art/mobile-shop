@@ -50,7 +50,7 @@
                 <div class="m-t-10"><input name="password" class="input-box" placeholder="password" type="password"/></div>
                 <div class="m-10-a p-10 error-msg">${errorMessage}</div>
                 <div class="m-10-a"><button class="primary-button m-10-a-db" type="submit">Login</button></div>
-                <div class="m-10-a"><button class="scd-button m-10-a-db">Return</button></div>
+                <div class="m-10-a"><button class="scd-button m-10-a-db" type="button" onclick="window.document.location='/mobileshop'">Return</button></div>
                 <div class="m-10-a p-10" ><a href="#">Don't have an account? Please click here to register.</a></div>
             </form>    
         </div>        
