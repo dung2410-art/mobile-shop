@@ -20,6 +20,7 @@ body {
 .center-pane{
     display: flex;
     flex-direction: row;
+    min-height: 70vh;
 }
 
 #main { 
@@ -64,6 +65,10 @@ body {
     align-self: center;
     margin: 0 10px 0 10px;
     cursor: pointer;
+}
+
+#header-login:hover{    
+    color: #ed6dcc !important;
 }
 
 #cart{
@@ -186,6 +191,24 @@ textarea:focus, input:focus{
     border-color: #de22ad;
 }
 
+.scd-button{
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    background: #a9a6a6;
+    border-radius: 10px;
+    border: solid 1px #a9a6a6;
+    height: 40px;
+    width: 120px;
+    cursor: pointer;
+    box-shadow: 1px 2px #888888;
+}
+
+.scd-button:hover{
+    background: #979393;
+    border-color: #979393;
+}
+
 .action-panel{
     margin-bottom: 10px;
     margin-top: 10px;
@@ -239,4 +262,40 @@ textarea:focus, input:focus{
 .product-image{
     width: 110px;
     height: 140px;
+}
+            
+.input-box{
+    border-radius: 10px;
+    color: #de22ad;
+    background: #ccc;
+    height: 25px;
+    padding: 2px;
+    border: solid 2px #de22ad;
+    margin: auto;
+    display: block;
+}
+            
+.m-t-10{
+    margin-top:10px
+}
+
+.m-10-a{
+    margin: 10px auto;
+}
+
+.m-10-a-db{
+    margin: 0px auto;
+    display: block;
+}
+
+.p-5{
+    padding: 5px;
+}
+
+.p-10{
+    padding: 10px;
+}
+
+.error-msg{
+    color: red;
 }

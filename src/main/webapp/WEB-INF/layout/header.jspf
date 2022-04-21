@@ -7,7 +7,7 @@
          Dung's Mobile Shop
     </div>
     <div id="header-right">        
-        <div id="header-login">
+        <div id="header-login" onclick="window.document.location='login'">
             Login
         </div>
         <div id="cart">            
