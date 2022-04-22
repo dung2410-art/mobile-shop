@@ -4,6 +4,10 @@
  */
 package com.dung.mobileshop.controllers;
 
+import com.dung.mobileshop.dao.ProductDAO;
+import com.dung.mobileshop.dao.UserDAO;
+import com.dung.mobileshop.models.Product;
+import com.dung.mobileshop.models.User;
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -21,7 +25,8 @@ import jakarta.servlet.http.HttpSession;
 @WebServlet(name="AdminController",
             urlPatterns = {"/admin",
                            "/admin/products",
-                           "/admin/transactions",
+                           "/admin/products/edit",
+                           "/admin/transactions",                           
                            "/admin/user"})
 public class AdminController extends HttpServlet {    
 
@@ -45,9 +50,22 @@ public class AdminController extends HttpServlet {
         }        
         RequestDispatcher requestDispatcher = null;
         String userPath = request.getServletPath();
-        if (userPath.equals("/admin/products")) {
-            // TODO: Implement 
-        }else  if (userPath.equals("/admin")) {            
+        if(userPath.equals("/admin/products")) {
+            request.setAttribute("productList", ProductDAO.getProducts());
+            requestDispatcher = getServletContext().getRequestDispatcher("/products-admin.jsp");
+        }
+        else if (userPath.equals("/admin/products/edit")) {
+            String idString = request.getParameter("id");
+            try{
+                int id = Integer.parseInt(idString);
+                Product prd = ProductDAO.getProductByID(id);
+                request.setAttribute("productInfo",prd);
+            }catch(Exception e){
+                e.printStackTrace();
+            }            
+            requestDispatcher = getServletContext().getRequestDispatcher("/product-edit.jsp");
+        }        
+        else  if (userPath.equals("/admin")) {            
             requestDispatcher = getServletContext().getRequestDispatcher("/index-admin.jsp");
         }
         requestDispatcher.forward(request,response);
@@ -64,7 +82,40 @@ public class AdminController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        RequestDispatcher requestDispatcher = null;
+        String userPath = request.getServletPath();
+        if (userPath.equals("/admin/products/edit")) {
+            String idString = request.getParameter("id");
+            if(idString != null){
+                String quantityString = request.getParameter("quantity");
+                String priceString = request.getParameter("price");
+                String name = request.getParameter("name");
+                String size = request.getParameter("size");
+                String model = request.getParameter("model");
+                String brand = request.getParameter("brand");
+                String description = request.getParameter("description");
+                try{
+                    int id = Integer.parseInt(idString);
+                    int price = Integer.parseInt(priceString);
+                    int quantity = Integer.parseInt(quantityString);                   
+                    Product prd= new Product(id, name, model, price, brand, description, quantity, size);                   
+                    //boolean result = ProductDAO.updateProductByID(prd);
+                    if(!ProductDAO.updateProductByID(prd)){
+                       
+                    }
+                    request.setAttribute("productInfo",prd);
+                }catch(Exception e){
+                    e.printStackTrace();
+                    request.setAttribute("errorMessage", "There was a problem with input!");
+                    requestDispatcher = getServletContext().getRequestDispatcher("/product-edit.jsp");
+                    requestDispatcher.forward(request,response);
+                    return;
+                }            
+                response.sendRedirect("/mobileshop/admin/products");
+            }else{
+                response.sendRedirect("/mobileshop/admin/products");
+            }            
+        }       
     }
 
     /**
