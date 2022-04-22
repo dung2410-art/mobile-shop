@@ -4,8 +4,6 @@
  */
 package com.dung.mobileshop.controllers;
 
-import com.dung.mobileshop.dao.UserDAO;
-import com.dung.mobileshop.models.User;
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,11 +18,12 @@ import jakarta.servlet.http.HttpSession;
  *
  * @author Dung
  */
-@WebServlet(name="AuthenController",
-            urlPatterns = {"/login",
-                           "/logout",
-                           "/register"})
-public class AuthenController extends HttpServlet {
+@WebServlet(name="AdminController",
+            urlPatterns = {"/admin",
+                           "/admin/products",
+                           "/admin/transactions",
+                           "/admin/user"})
+public class AdminController extends HttpServlet {    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -38,15 +37,19 @@ public class AuthenController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        HttpSession session=request.getSession();    
+        if(session.getAttribute("userrole")==null || !session.getAttribute("userrole").toString().equals("1")){
+            response.sendRedirect("/mobileshop/login");
+            return;
+        }        
+        RequestDispatcher requestDispatcher = null;
         String userPath = request.getServletPath();
-        if (userPath.equals("/login")) {
+        if (userPath.equals("/admin/products")) {
             // TODO: Implement 
-        }else  if (userPath.equals("/logout")) {            
-            HttpSession session=request.getSession();              
-            session.removeAttribute("username");
-            session.removeAttribute("userrole");
+        }else  if (userPath.equals("/admin")) {            
+            requestDispatcher = getServletContext().getRequestDispatcher("/index-admin.jsp");
         }
-        RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/login.jsp");
         requestDispatcher.forward(request,response);
     }
 
@@ -61,23 +64,7 @@ public class AuthenController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        User user = UserDAO.authenticate(request.getParameter("email"),
-                request.getParameter("password"));
-        // if addToCart action is called
-        if (user != null) {            
-            HttpSession session=request.getSession();  
-            session.setAttribute("username", user.getName());
-            session.setAttribute("userrole", user.getRole());
-            if(user.getRole()==1){
-                response.sendRedirect("/mobileshop/admin");
-            }else{
-                response.sendRedirect("/mobileshop");
-            }
-        } else {            
-            request.setAttribute("errorMessage", "Either email or password was incorrect!");
-            RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/login.jsp");
-            requestDispatcher.forward(request,response);
-        }        
+        
     }
 
     /**
