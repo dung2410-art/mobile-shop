@@ -22,7 +22,7 @@ public class DBConnection {
         try {         
             DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());
             //String dbURL = "jdbc:sqlserver://localhost\\instance1;enabledTLSProtocols=TLSv1.0";
-            String dbURL = "jdbc:sqlserver://localhost:1433;databaseName=PRJ301_moblieshop";
+            String dbURL = "jdbc:sqlserver://localhost:1433;databaseName=PRJ301";
             String user = "sa";
             String pass = "123";
             conn = DriverManager.getConnection(dbURL, user, pass);
