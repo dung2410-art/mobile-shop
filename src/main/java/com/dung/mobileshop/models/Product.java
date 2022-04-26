@@ -9,18 +9,6 @@ package com.dung.mobileshop.models;
  * @author Admin
  */
 public class Product {
-
-    public Product(int id, String name, String model, int price, String brand, String description, int quantity, String size) {
-        this.id = id;
-        this.name = name;
-        this.model = model;
-        this.price = price;
-        this.brand = brand;
-        this.description = description;
-        this.quantity = quantity;
-        this.size = size;
-    }
-    
     private int id;
 
     public int getId() {

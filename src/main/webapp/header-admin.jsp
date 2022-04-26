@@ -1,4 +1,4 @@
-<script src="/mobileshop/js/jquery.3.6.0.min.js"></script>
+<script src="js/jquery.3.6.0.min.js"></script>
 <style>
     #pop-menu{
         position: absolute !important;
@@ -29,7 +29,7 @@
 </style>
 <div id="header">
     <div id="header-image">
-        <img id="logo" src="/mobileshop/images/admin-logo.png">       
+        <img id="logo" src="images/admin-logo.png">       
     </div>
     <div  id="header-title">
          Administration Page
@@ -45,8 +45,8 @@
             </div>            
         </div>
         <div id="pop-menu">
-            <div class="pop-menu-item" onclick="window.document.location='/mobileshop/admin'">Home</div>
-            <div class="pop-menu-item" onclick="window.document.location='/mobileshop/logout'">Log out</div>
+            <div class="pop-menu-item" onclick="window.document.location=''">Home</div>
+            <div class="pop-menu-item" onclick="window.document.location='logout'">Log out</div>
         </div>         
         <%  }else{ %>
          <div id="header-login" onclick="window.document.location='login'">
@@ -63,7 +63,8 @@ $("#search-box").on("keyup",function(e){
     }
 });
 
-$(".active-menu").on("click",function(e){  
+$(".active-menu").on("click",function(e){    
+    console.log("ádasdasdasd");
     if($("#pop-menu").css("display")==="block"){
         $("#pop-menu").css("display", "none");
     }else{

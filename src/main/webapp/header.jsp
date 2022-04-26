@@ -66,7 +66,8 @@ $("#search-box").on("keyup",function(e){
     }
 });
 
-$(".active-menu").on("click",function(e){        
+$(".active-menu").on("click",function(e){    
+    console.log("ádasdasdasd");
     if($("#pop-menu").css("display")==="block"){
         $("#pop-menu").css("display", "none");
     }else{

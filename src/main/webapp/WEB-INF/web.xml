@@ -41,10 +41,6 @@
     <servlet-mapping>
         <servlet-name>AdminController</servlet-name>
         <url-pattern>/admin</url-pattern>
-        <url-pattern>/admin/products</url-pattern>
-        <url-pattern>/admin/products/edit</url-pattern>
-        <url-pattern>/admin/users</url-pattern>
-        <url-pattern>/admin/transactions</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
