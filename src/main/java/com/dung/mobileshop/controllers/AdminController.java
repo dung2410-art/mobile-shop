@@ -69,6 +69,13 @@ public class AdminController extends HttpServlet {
             requestDispatcher = getServletContext().getRequestDispatcher("/index-admin.jsp");
         }
         requestDispatcher.forward(request,response);
+<<<<<<< HEAD
+=======
+        
+        
+        
+     
+>>>>>>> 1747be2 (add user)
     }
 
     /**

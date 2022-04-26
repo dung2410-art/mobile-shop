@@ -19,9 +19,15 @@ import java.util.ArrayList;
  * @author Admin
  */
 public class ProductDAO {
+<<<<<<< HEAD
     private static String dbURL = "jdbc:sqlserver://localhost\\INSTANCE2007";
     private static String dbUser = "sa";
     private static String dbPassword = "123456";
+=======
+    private static String dbURL = "jdbc:sqlserver://localhost:1433;databaseName=PRJ301";
+    private static String dbUser = "sa";
+    private static String dbPassword = "123";
+>>>>>>> 1747be2 (add user)
     private static PreparedStatement pstmt = null;
     private static Connection conn = null;
     private static Statement statement = null;
