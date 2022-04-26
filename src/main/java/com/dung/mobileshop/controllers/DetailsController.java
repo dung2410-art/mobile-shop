@@ -5,10 +5,6 @@
 package com.dung.mobileshop.controllers;
 
 import com.dung.mobileshop.dao.ProductDAO;
-<<<<<<< HEAD
-=======
-import com.dung.mobileshop.dao.UserDAO;
->>>>>>> 1747be2 (add user)
 import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import jakarta.servlet.ServletException;

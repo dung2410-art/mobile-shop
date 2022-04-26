@@ -9,18 +9,8 @@ package com.dung.mobileshop.models;
  * @author Admin
  */
 public class User {
-<<<<<<< HEAD
     private String name;
     private int role;
-=======
-    private int id;
-    private String name;
-    private int role;
-    private String phone;
-    private String email;
-    private String address;
-    private String password;
->>>>>>> 1747be2 (add user)
     private String cart;
 
     public User(String name, int role) {
@@ -28,64 +18,6 @@ public class User {
         this.role = role;
     }
 
-<<<<<<< HEAD
-=======
-    public User() {
-    }
-
-    public User(int id, String name, int role, String phone, String email, String address, String password) {
-        this.id = id;
-        this.name = name;
-        this.role = role;
-        this.phone = phone;
-        this.email = email;
-        this.address = address;
-        this.password = password;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-    
-    
-
->>>>>>> 1747be2 (add user)
     public String getName() {
         return name;
     }
