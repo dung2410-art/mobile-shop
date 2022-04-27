@@ -35,12 +35,15 @@
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     <servlet-mapping>
         <servlet-name>AdminController</servlet-name>
         <url-pattern>/admin</url-pattern>
     </servlet-mapping>
 >>>>>>> parent of 4c02062 (Add: admin.product management)
+=======
+>>>>>>> parent of d491459 (Add: admin page)
     <session-config>
         <session-timeout>
             30
