@@ -34,6 +34,13 @@
         <url-pattern>/logout</url-pattern>
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
+<<<<<<< HEAD
+=======
+    <servlet-mapping>
+        <servlet-name>AdminController</servlet-name>
+        <url-pattern>/admin</url-pattern>
+    </servlet-mapping>
+>>>>>>> parent of 4c02062 (Add: admin.product management)
     <session-config>
         <session-timeout>
             30
