@@ -12,10 +12,6 @@
         <servlet-name>AuthenController</servlet-name>
         <servlet-class>com.dung.mobileshop.controllers.AuthenController</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>AdminController</servlet-name>
-        <servlet-class>com.dung.mobileshop.controllers.AdminController</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern/>
@@ -37,10 +33,6 @@
         <url-pattern>/login</url-pattern>
         <url-pattern>/logout</url-pattern>
         <url-pattern>/register</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>AdminController</servlet-name>
-        <url-pattern>/admin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

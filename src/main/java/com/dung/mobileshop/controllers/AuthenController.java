@@ -68,11 +68,7 @@ public class AuthenController extends HttpServlet {
             HttpSession session=request.getSession();  
             session.setAttribute("username", user.getName());
             session.setAttribute("userrole", user.getRole());
-            if(user.getRole()==1){
-                response.sendRedirect("/mobileshop/admin");
-            }else{
-                response.sendRedirect("/mobileshop");
-            }
+            response.sendRedirect("/mobileshop");
         } else {            
             request.setAttribute("errorMessage", "Either email or password was incorrect!");
             RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher("/login.jsp");
